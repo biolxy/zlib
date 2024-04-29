@@ -116,3 +116,17 @@ any third parties.
 If you redistribute modified sources, we would appreciate that you include in
 the file ChangeLog history information documenting your changes.  Please read
 the FAQ for more information on the distribution of modified source versions.
+
+
+# for fast_zlib
+
+- https://github.com/gildor2/fast_zlib
+
+```bash
+cp ../../fast_zlib/Sources/match.h .
+cp ../../fast_zlib/Sources/match32.asm .
+nasm ../../fast_zlib/Sources/match32.asm -f elf32 -o match.o
+mv deflate.c deflateRaw.c
+cp ../../zlib-1.2.13/deflate.c .
+patch -p0 deflate.c ../../fast_zlib/Sources/zlib_1.2.13.patch
+```
